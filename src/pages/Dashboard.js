@@ -1,14 +1,14 @@
 import Button from "../components/Button";
 
-export default function Booking() {
+export default function Dashboard() {
   const container = document.createElement("div");
   container.innerHTML = `
-        <h1>Book an Appointment</h1>
-        <p>Select a date and time to book your appointment.</p>
+        <h1>Check your status</h1>
+        <p>Here is your current status.</p>
     `;
 
   const button = Button({
-    label: "Create Appointment",
+    label: "Check Status Entry",
     onClick: () => {
       console.log("clicked button");
       alert("Welcome!");

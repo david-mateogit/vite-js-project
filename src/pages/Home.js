@@ -6,7 +6,7 @@ export default function Home() {
   container.classList.add("home-container");
 
   container.innerHTML += `
-  <h1 class="home-title">Welcome to the Booking App</h1>
+  <h1 class="home-title">Welcome to the Dashboard App</h1>
   `;
 
   const loginForm = LoginForm();

@@ -1,6 +1,6 @@
 import AdminDayView from "./pages/AdminDayView";
 import AdminStaffManage from "./pages/AdminStaffManage";
-import Booking from "./pages/Booking";
+import Dashboard from "./pages/Dashboard";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
@@ -33,7 +33,7 @@ const checkAdminAccess = (route) => {
 
 const routes = {
   "/": Home,
-  "/booking": Booking,
+  "/dashboard": Dashboard,
   "/profile": Profile,
   "/admin": LoginPage,
   "/admin/day-view": AdminDayView,
@@ -70,7 +70,7 @@ function renderRoute() {
 
     case checkUserAccess(path):
       if (routePath === "/") {
-        routePath = "/booking";
+        routePath = "/dashboard";
       }
       pageComponent = routes[routePath] || Error;
       console.log("routePath", routePath);
@@ -78,6 +78,7 @@ function renderRoute() {
 
     default:
       pageComponent = routes["/"];
+      window.history.pushState({}, "/", window.location.origin);
   }
 
   const app = document.getElementById("app");
