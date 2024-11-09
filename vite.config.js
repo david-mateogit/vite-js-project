@@ -5,5 +5,5 @@ export default defineConfig({
   build: {
     outDir: "../dist",
   },
-  base: "/vite-js-project/",
+  base: "/",
 });
