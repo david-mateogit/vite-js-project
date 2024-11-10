@@ -1,4 +1,7 @@
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
 import AdminDayView from "./pages/AdminDayView";
+import AdminPage from "./pages/AdminPage";
 import AdminStaffManage from "./pages/AdminStaffManage";
 import Dashboard from "./pages/Dashboard";
 import Error from "./pages/Error";
@@ -36,6 +39,7 @@ const routes = {
   "/dashboard": Dashboard,
   "/profile": Profile,
   "/admin": LoginPage,
+  "/admin/admin-page": AdminPage,
   "/admin/day-view": AdminDayView,
   "/admin/staff-manage": AdminStaffManage,
 };
@@ -55,7 +59,7 @@ function renderRoute() {
       } else if (checkAdminAccess(path)) {
         console.log("Admin access granted.");
         if (routePath === "/admin") {
-          routePath = "/admin/day-view";
+          routePath = "/admin/admin-page";
         }
         pageComponent = routes[routePath] || Error;
       } else {
@@ -83,7 +87,14 @@ function renderRoute() {
 
   const app = document.getElementById("app");
   app.innerHTML = "";
+
+  const navBarComponent = NavBar();
+  app.appendChild(navBarComponent);
+
   app.appendChild(pageComponent());
+  
+  const footerComponent = Footer();
+  app.appendChild(footerComponent);
 }
 
 export function navigateTo(path) {
