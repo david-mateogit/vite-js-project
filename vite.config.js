@@ -1,3 +1,4 @@
+import path from "path";
 import { defineConfig } from "vite";
 import { viteStaticCopy } from "vite-plugin-static-copy";
 
@@ -6,12 +7,12 @@ export default defineConfig({
   build: {
     outDir: "../dist",
   },
-  base: "/vite-js-project/",
+  base: "/",
   plugins: [
     viteStaticCopy({
       targets: [
         {
-          src: "../src/404.html",
+          src: path.resolve(__dirname, "src/404.html"),
           dest: ".",
         },
       ],
