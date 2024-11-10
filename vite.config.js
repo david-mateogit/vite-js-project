@@ -7,7 +7,7 @@ export default defineConfig({
   build: {
     outDir: "../dist",
   },
-  base: "/",
+  base: "/vite-js-project/",
   plugins: [
     viteStaticCopy({
       targets: [
